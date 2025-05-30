@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import CountryPicker
 
 struct SignInView: View {
     
     @State var phoneNumber: String = ""
+    @State var isShowPicker: Bool = false
+    @State var countryObj: Country?
+    
     var body: some View {
         ZStack {
             Image("bottom_bg")
@@ -37,12 +41,21 @@ struct SignInView: View {
                         Button {
                             
                             //MARK: - TODO
+                            isShowPicker = true
                             
                         } label: {
-                            Image("")
-                            Text("+27")
-                                .font(.customfont(.medium, fontSize: 18))
-                                .foregroundStyle(Color.primaryText)
+                           // Image("")
+                            
+                            if let countryObj = countryObj {
+                                Text("\(countryObj.isoCode.getFlag())")
+                                    .font(.customfont(.medium, fontSize: 35))
+                                
+                                Text("+\(countryObj.phoneCode)")
+                                    .font(.customfont(.medium, fontSize: 18))
+                                    .foregroundStyle(Color.primaryText)
+                            }
+                            
+                            
                         }
                         
                         TextField("Enter your phone number", text: $phoneNumber)
@@ -102,6 +115,12 @@ struct SignInView: View {
             }
             
         }
+        .onAppear {
+            self.countryObj = Country(phoneCode: "27", isoCode: "ZA")
+        }
+        .sheet(isPresented: $isShowPicker, content: {
+            CountryPickerUI(country: $countryObj)
+        })
         .ignoresSafeArea()
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
