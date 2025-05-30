@@ -17,7 +17,6 @@ struct WelcomeView: View {
             
             VStack {
                 Spacer()
-                
                 Image("app_logo")
                     .resizable()
                     .scaledToFit()
@@ -35,14 +34,16 @@ struct WelcomeView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 30)
                 
-                RoundButton(title: "Get Started") {
-                    
+                NavigationLink {
+                    SignInView()
+                } label: {
+                    RoundButton(title: "Get Started") {
+                        //MARK: - TODO
+                    }
                 }
 
-                                
                 Spacer()
                     .frame(height: 80)
-                
             }
             .padding(.horizontal, 20)
         }
@@ -55,5 +56,7 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView()
+    NavigationStack {
+        WelcomeView()
+    }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct RoundButton: View {
     
     @State var title: String = "title"
+    @State var backgroundColor: Color = .primaryApp
     var didTap: (() -> ())?
     
     var body: some View {
@@ -22,7 +23,7 @@ struct RoundButton: View {
                 .multilineTextAlignment(.center)
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
-        .background(Color.primaryApp)
+        .background(backgroundColor)
         .cornerRadius(20)
 
     }
