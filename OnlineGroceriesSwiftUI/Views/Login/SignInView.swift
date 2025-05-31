@@ -19,7 +19,7 @@ struct SignInView: View {
             Image("bottom_bg")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: .screenWidth, height: .screenHeight / 2)
+                .frame(width: .screenWidth, height: .screenHeight)
             
             VStack {
                 Image("sign_in_top")
@@ -124,8 +124,7 @@ struct SignInView: View {
         .ignoresSafeArea()
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
-        .toolbar(.hidden)
-        .navigationBarBackButtonHidden(true)
+        .toolbarVisibility(.hidden, for: .navigationBar)
     }
 }
 

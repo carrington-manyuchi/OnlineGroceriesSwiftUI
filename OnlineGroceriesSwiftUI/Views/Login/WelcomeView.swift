@@ -37,9 +37,7 @@ struct WelcomeView: View {
                 NavigationLink {
                     SignInView()
                 } label: {
-                    RoundButton(title: "Get Started") {
-                        //MARK: - TODO
-                    }
+                    RoundButton(title: "Get Started")
                 }
 
                 Spacer()
@@ -50,8 +48,7 @@ struct WelcomeView: View {
         .ignoresSafeArea()
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
-        .toolbar(.hidden)
-        .navigationBarBackButtonHidden(true)
+        .toolbarVisibility(.hidden, for: .navigationBar)
     }
 }
 
