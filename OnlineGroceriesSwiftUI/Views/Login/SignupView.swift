@@ -92,7 +92,7 @@ struct SignupView: View {
                 .padding(.bottom, .screenWidth * 0.05)
                 
                 NavigationLink {
-                    SignInView()
+                    LoginView()
                 } label: {
                     HStack {
                         Text("Already have an account?")
@@ -102,7 +102,6 @@ struct SignupView: View {
                         Text("Sign In")
                             .font(.customfont(.semibold, fontSize: 14))
                             .foregroundStyle(Color.primaryApp)
-                        
                     }
                 }
                 
