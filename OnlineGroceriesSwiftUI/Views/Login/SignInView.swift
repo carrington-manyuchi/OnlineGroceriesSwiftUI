@@ -54,13 +54,39 @@ struct SignInView: View {
                                     .font(.customfont(.medium, fontSize: 18))
                                     .foregroundStyle(Color.primaryText)
                             }
-                            
-                            
                         }
                         
                         TextField("Enter your phone number", text: $phoneNumber)
                             .frame(minWidth: 0, maxWidth: .infinity)
                     }
+                    
+                    NavigationLink {
+                        LoginView()
+                    } label: {
+                        Text("Continue with email sign in")
+                            .font(.customfont(.semibold, fontSize: 18))
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
+                    .background(Color(hex: "5383EC"))
+                    .cornerRadius(20)
+                    .padding(.bottom, 8)
+                    
+                    NavigationLink {
+                        SignupView()
+                    } label: {
+                        Text("Continue with email sign up")
+                            .font(.customfont(.semibold, fontSize: 18))
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
+                    .background(Color.primaryApp)
+                    .cornerRadius(20)
+                    .padding(.bottom, 8)
+                    
+                    
                     Divider()
                         .padding(.bottom, 25)
 
@@ -71,7 +97,6 @@ struct SignInView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding(.bottom, 25)
                         .padding(.bottom, 8)
-
                     
                     Button {
                        
@@ -106,11 +131,10 @@ struct SignInView: View {
                     .background(Color(hex: "4A66AC"))
                     .cornerRadius(20)
                     .padding(.bottom, 8)
-                    
                 }
                 .padding(.horizontal, 20)
                 .frame(width: .screenWidth, alignment: .leading)
-                .padding(.top, .topInsets + .screenWidth)
+                .padding(.top, .topInsets + .screenWidth * 0.68)
 
             }
             
@@ -129,5 +153,7 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView()
+    NavigationStack {
+        SignInView()
+    }
 }

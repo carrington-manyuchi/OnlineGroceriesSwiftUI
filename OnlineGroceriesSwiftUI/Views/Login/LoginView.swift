@@ -69,15 +69,20 @@ struct LoginView: View {
                 }
                 .padding(.bottom, .screenWidth * 0.05)
 
-                HStack {
-                    Text("Don have an account?")
-                        .font(.customfont(.semibold, fontSize: 14))
-                        .foregroundStyle(Color.primaryText)
-                    
-                    Text("Signup")
-                        .font(.customfont(.semibold, fontSize: 14))
-                        .foregroundStyle(Color.primaryApp)
+                NavigationLink {
+                    SignupView()
+                } label: {
+                    HStack {
+                        Text("Don't have an account?")
+                            .font(.customfont(.semibold, fontSize: 14))
+                            .foregroundStyle(Color.primaryText)
+                        
+                        Text("Signup")
+                            .font(.customfont(.semibold, fontSize: 14))
+                            .foregroundStyle(Color.primaryApp)
+                    }
                 }
+               
                 Spacer()
             }
             .padding(.top, .topInsets + 64)
@@ -117,5 +122,7 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    NavigationStack {
+        LoginView()
+    }
 }
